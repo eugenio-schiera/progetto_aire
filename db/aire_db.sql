@@ -1,6 +1,8 @@
 -- =========================================================
 -- TABELLA STAZIONI
 -- =========================================================
+CREATE DATABASE IF NOT EXISTS aire_db;
+USE aire_db;
 
 CREATE TABLE stazione (
     id_amat INT PRIMARY KEY,
