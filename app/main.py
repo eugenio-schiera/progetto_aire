@@ -1,36 +1,25 @@
 import tkinter as tk
-from tkinter import messagebox
-import database
 import views
 
-def test_connessione():
-    """Testa se l'app riesce a comunicare con il database."""
-    conn = database.get_connection()
-    if conn:
-        messagebox.showinfo("Successo", "Connessione al database aire_db stabilita correttamente!")
-        conn.close()
-    else:
-        messagebox.showerror("Errore", "Impossibile connettersi al database. Verifica le credenziali.")
+def cambia_schermata(funzione_schermata):
+    """Svuota il pannello centrale e carica la nuova vista selezionata."""
+    funzione_schermata(main_container)
 
-def apri_misurazioni():
-     """Richiama la funzione dal modulo views.""" 
-     views.mostra_misurazioni(root)
-
-# Configurazione della finestra principale
+# 1. Finestra Principale Root
 root = tk.Tk()
 root.title("AIRE - Qualità dell'Aria a Milano")
-root.geometry("800x600")
+root.geometry("900x650")
+root.minsize(850, 600)
 
-# Titolo della Home
-titolo = tk.Label(root, text="Benvenuto in AIRE", font=("Helvetica", 24, "bold"))
-titolo.pack(pady=40)
+# 2. Creazione della barra di navigazione fissa superiore
+views.crea_barra_navigazione(root, cambia_schermata)
 
-# Pulsanti
-btn_test = tk.Button(root, text="Testa Connessione DB", font=("Helvetica", 12), command=test_connessione)
-btn_test.pack(pady=10)
+# 3. Contenitore dinamico centrale per le varie viste
+main_container = tk.Frame(root)
+main_container.pack(fill="both", expand=True, padx=10, pady=10)
 
-btn_dati = tk.Button(root, text="Visualizza Misurazioni", font=("Helvetica", 12), command=apri_misurazioni)
-btn_dati.pack(pady=10)
+# 4. Avvio automatico dell'app sulla schermata Home
+cambia_schermata(views.schermata_home)
 
 if __name__ == "__main__":
     root.mainloop()
