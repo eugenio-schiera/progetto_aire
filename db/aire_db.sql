@@ -160,7 +160,7 @@ INSERT INTO stazione_inquinante (
 (9, 'PM25');
 
 
-LOAD DATA LOCAL INFILE 'C:\\temp\\qaria_datoariagiornostazione_2026-05-19.csv'
+LOAD DATA LOCAL INFILE 'C:\\progetto_aire\\data\\qaria_datoariagiornostazione_2026-05-19.csv'
 INTO TABLE misurazione_giornaliera
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ';'
