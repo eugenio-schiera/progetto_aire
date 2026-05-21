@@ -7,7 +7,7 @@ def get_connection():
         conn = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='root',  # Cambia con la tua password se diversa
+            password='astro97T',  # Cambia con la tua password se diversa
             database='aire_db'
         )
         if conn.is_connected():

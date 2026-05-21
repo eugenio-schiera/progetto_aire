@@ -7,6 +7,7 @@ def cambia_schermata(funzione_schermata):
 
 # 1. Finestra Principale Root
 root = tk.Tk()
+root.configure(bg="white")
 root.title("AIRE - Qualità dell'Aria a Milano")
 root.geometry("900x650")
 root.minsize(850, 600)
@@ -23,3 +24,4 @@ cambia_schermata(views.schermata_home)
 
 if __name__ == "__main__":
     root.mainloop()
+
